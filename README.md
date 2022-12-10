@@ -1,7 +1,10 @@
 # ML_in_ElectricDischargeMachine
 ML application in EDM performance
+
 <!-- 
-We have Prepared the Models using differnet Algorithms
-and based on that we are getting the differnt Accuracies.
+I have Prepared the Models using differnet Algorithms
+and based on that I are getting the differnt Accuracies.
 Random Forest Regression is training our model best and thus giving
-Maximum Accuracy to our model for the Prediction of the MRR and Ra -->
+Maximum Accuracy to the model for the Prediction of the MRR and Ra. -->
+
+<!-- This Model automates the working of the Electric Discharge Machining-->
