@@ -1,11 +1,13 @@
 import streamlit as st
 import pickle
 import numpy as np
-#import sklearn as sk
+import sklearn
 
 # import the model
-#reg_rf = pickle.load(open('reg_rf.pkl','rb'))
-#scalar = pickle.load(open('scaling.pkl','rb'))
+reg_rf = pickle.load(open('reg_rf.pkl','rb'))
+reg_rf2 = pickle.load(open('reg_rf2.pkl','rb'))
+scalar = pickle.load(open('scaling.pkl','rb'))
+
 
 
 html_temp = """
@@ -31,14 +33,13 @@ Discharge_current = st.number_input('Discharge_current')
 Voltage = st.selectbox('Voltage(V)',[10,20,30,40,50,60,70,80,90,100,110,120])
 
 
-if st.button('Predict Ra'):
-    pass
-
 if st.button('Predict MRR'):
-    pass
-    # query = np.array([Pulse_on_time,Pulse_off_time,Discharge_current,Voltage])
-    # final_query = scalar.transform(query.reshape(1,4))
-    # ## query = query.reshape(1,4)
-    # st.title("The predicted Value of MRR is " + str(reg_rf.predict(final_query)[0]))
+    query = np.array([Pulse_on_time,Pulse_off_time,Discharge_current,Voltage])
+    final_query = scalar.transform(query.reshape(1,4))
+    st.title("Predicted Value of MRR is " + str(round(reg_rf.predict(final_query)[0]),4) + " gm/min")
 
-    
+
+if st.button('Predict Ra'):
+    query = np.array([Pulse_on_time,Pulse_off_time,Discharge_current,Voltage])
+    fin_query = query.reshape(1,4)
+    st.title("Predicted Value of Ra is " + str(round(reg_rf2.predict(fin_query)[0]),2) + " um")
